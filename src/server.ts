@@ -19,7 +19,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use(function (req, res, next) {
-    if (process.env.NODE_ENV == 'Production' && process.env.WPP_CC && process.env.WPP_KEY) {
+    if (process.env.NODE_ENV == 'prod' && process.env.WPP_CC && process.env.WPP_KEY) {
         console.log('==========================================PRODUCTION==============================================');
         WebpayPlus.configureForProduction(process.env.WPP_CC, process.env.WPP_KEY);
     } else {
